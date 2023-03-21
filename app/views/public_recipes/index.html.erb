@@ -1,0 +1,20 @@
+<div>
+  <% @public_recipes.each do |recipe|%>
+    <div>
+      <h3>
+        <%= link_to recipe.name, recipe_path(id: recipe.id), class: "card-title" %>
+      </h3>
+      <h5>By: <%= recipe.user.name %>
+      </h5>
+      <p>Total food items: <%= recipe.recipe_foods.length %> 
+      </p>
+      <p>
+        Total price: $<% sum = 0 %>
+        <% recipe.recipe_foods.each do |food| %>
+          <% sum += food.food.price.to_i %>
+        <% end %>
+        <%= sum %>
+      </p>
+    </div>
+  <%end%>
+</div>
