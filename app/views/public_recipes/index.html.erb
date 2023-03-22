@@ -9,11 +9,7 @@
       <p>Total food items: <%= recipe.recipe_foods.length %> 
       </p>
       <p>
-        Total price: $<% sum = 0 %>
-        <% recipe.recipe_foods.each do |food| %>
-          <% sum += food.food.price.to_i %>
-        <% end %>
-        <%= sum %>
+        Total price: $<%= recipe.total_price %>
       </p>
     </div>
   <%end%>
