@@ -12,8 +12,8 @@ Recipe.destroy_all
 User.destroy_all
 
 # Creating 2 users
-jorge = User.create(name: 'jorge')
-fuad = User.create(name: 'fuad')
+jorge = User.create(name: 'jorge', email: 'jorge@gmail.com', password: '123123')
+fuad = User.create(name: 'fuad', email: 'fuad@gmail.com', password: '456456')
 
 # Creating 4 foods for jorge
 olive_oil = Food.create(name: 'Olive Oil', measurement_unit: 'l', price: '200$', quantity: 5, user: jorge)
