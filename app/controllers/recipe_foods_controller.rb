@@ -5,11 +5,6 @@ class RecipeFoodsController < ApplicationController
     @foods = current_user.foods
   end
 
-  def general_shopping_lists
-    @recipe_foods = RecipeFood.includes(:food)
-    @food_count = RecipeFood.select(:food_id).distinct.count
-  end
-
   def create
     @recipe_food = RecipeFood.new(params_recipe_foods)
 
