@@ -1,0 +1,50 @@
+<%= link_to "Home", "/" %>
+<h1>Recipe: <%= @recipe.name %></h1>
+<h3>Preparation time: <%= @recipe.preparation_time %></h3>
+<h3>Cooking time: <%= @recipe.cooking_time %></h3>
+<h3>Visibility</h3>
+<div>
+  <% if @recipe.public %>
+    <p>Public</p>
+    <label class="switch" >
+      <input type="checkbox" checked><div></div>
+    </label>
+  <% else %>
+    <p>Private</p>
+    <label class="switch" >
+      <input type="checkbox"><div></div>
+    </label>
+  <% end %>
+  <% if can? :update, @recipe %>
+    <%= form_for @recipe, scope: :recipe, method: :patch do  |f| %>
+      <%= f.submit 'Visibility', class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+</div>
+<h3>Steps: <%= @recipe.description%></h3> 
+<%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
+<% if @recipe.recipe_foods.length != 0 %>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipe.recipe_foods.each do |f| %>
+      <tr>
+        <td><%= f.food.name %></td>
+        <td><%= f.quantity %></td>
+        <td>
+          <% sum = f.quantity * f.food.price%>
+          <%= sum%>
+        </td>
+        <% if can? :destroy, @recipe%>
+          <td><%= button_to "Remove", recipe_recipe_food_path(@recipe.id, f.id), method: :delete%></td>
+        <%end%>
+      </tr>
+    <%end%>
+  </table>
+<% else %>
+  <p>No foods added to recipe yet.</p>
+<%end%>
