@@ -6,6 +6,12 @@ class Recipe < ApplicationRecord
   validates :name, :preparation_time, :cooking_time, :description, presence: true
 
   def total_price
-    foods.sum(:price)
+    def total_price
+      total = 0
+      recipe_foods.each do |recipe_food|
+        total += recipe_food.quantity * recipe_food.food.price
+      end
+      total
+    end
   end
 end

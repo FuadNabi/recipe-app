@@ -6,6 +6,7 @@
     <th>Food</th>
     <th>Measurement unit</th>
     <th>Unit price</th>
+    <th>Quantity</th>
     <th>Actions</th>
   </tr>
   <% @foods.each do |food| %>
@@ -13,6 +14,7 @@
       <td><%= food.name %></td>
       <td><%= food.measurement_unit %></td>
       <td><%= food.price %></td>
+      <td><%= food.quantity %></td>
       <td><%= button_to "Delete", food, method: :delete %></td>
     </tr>
   <% end %>
