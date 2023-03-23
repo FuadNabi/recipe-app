@@ -1,11 +1,11 @@
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
 <h1>Recipes</h1>
-<%= link_to "Home", "/" %>
-
+<div class="recipes">
 <div>
 
   <% @recipes.each do |recipe| %>
-    <div>
-      <div>
+    <div class="recipe-each">
+      <div class="recipe-header">
         <h3>Recipe <%= recipe.id%></h3>
         <h2><%= link_to recipe.name, recipe%></h2>      
         <%= button_to "Remove", recipe, method: :delete %>
@@ -16,5 +16,5 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "Add Recipe", new_recipe_path %>
+</div>
+<div class="addrecipe"><%= link_to "Add Recipe", new_recipe_path, class: "addrecipe-inner" %></div>

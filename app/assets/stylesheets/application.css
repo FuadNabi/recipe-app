@@ -72,3 +72,62 @@ body {
 .slider.round::before {
   border-radius: 50%;
 }
+
+.login, .signup, .forgot, .foods {
+  width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.field, .actions {
+  margin-top: 20px;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+.signup-button, .forgot-button, .login-button {
+ color: black;
+}
+
+.home {
+ text-align: center;
+}
+
+.home-inner, .addfood-inner, .addrecipe-inner {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border: 1px solid;
+}
+
+.addfood, .addrecipe {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.recipes {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.recipe-each {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.recipe-header {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
