@@ -13,7 +13,7 @@ RSpec.describe 'Home page view', type: :feature do
     end
 
     it 'Show content of home page' do
-      visit "/"
+      visit '/'
       expect(page).to have_content('Sign out')
       expect(page).to have_content('Recipe App')
       expect(page).to have_content('Foods')
@@ -25,17 +25,17 @@ RSpec.describe 'Home page view', type: :feature do
       sleep(5)
       expect(page).to have_current_path(foods_path)
 
-      visit "/"
+      visit '/'
       click_link('User\'s Recipes')
       sleep(5)
       expect(page).to have_current_path(recipes_path)
 
-      visit "/"
+      visit '/'
       click_link('Public Recipes')
       sleep(5)
       expect(page).to have_current_path(public_recipes_path)
-      
-      visit "/"
+
+      visit '/'
       click_link('Shopping List')
       sleep(5)
       expect(page).to have_current_path(general_shopping_list_path)

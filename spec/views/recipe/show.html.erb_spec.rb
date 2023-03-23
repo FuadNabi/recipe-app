@@ -4,7 +4,8 @@ RSpec.describe 'Recipe page view', type: :feature do
   describe 'REcipe show page' do
     before(:each) do
       @user = User.create!(email: 'max@email.com', password: 'password', name: 'Fuad')
-      @recipe = Recipe.create!(user: @user, name: 'Ground beef', preparation_time: '10 min', cooking_time: '45 min', description: 'Lorem ipsum', public: true)
+      @recipe = Recipe.create!(user: @user, name: 'Ground beef', preparation_time: '10 min', cooking_time: '45 min',
+                               description: 'Lorem ipsum', public: true)
 
       visit 'users/sign_in'
       fill_in 'Email', with: 'max@email.com'
@@ -17,11 +18,11 @@ RSpec.describe 'Recipe page view', type: :feature do
       expect(page).to have_content("Recipe: #{@recipe.name}")
       expect(page).to have_content("Preparation time: #{@recipe.preparation_time}")
       expect(page).to have_content("Cooking time: #{@recipe.cooking_time}")
-      expect(page).to have_content("Public")
+      expect(page).to have_content('Public')
       expect(page).to have_content("Steps: #{@recipe.description}")
-      expect(page).to have_content("Generate shopping list")
-      expect(page).to have_content("Add Ingredient")
-      expect(page).to have_content("No foods added to recipe yet.")
+      expect(page).to have_content('Generate shopping list')
+      expect(page).to have_content('Add Ingredient')
+      expect(page).to have_content('No foods added to recipe yet.')
 
       @food = Food.create!(user_id: @user.id, name: 'Ground beef', measurement_unit: 'kg', price: 12)
       @ingredient = RecipeFood.create!(quantity: 1, recipe_id: @recipe.id, food_id: @food.id)
@@ -34,12 +35,12 @@ RSpec.describe 'Recipe page view', type: :feature do
       expect(page).to have_current_path(new_recipe_recipe_food_path(@recipe.id))
 
       visit "/recipes/#{@recipe.id}"
-      expect(page).to have_no_content("No foods added to recipe yet.")
-      expect(page).to have_content("Food Quantity Value Actions")
+      expect(page).to have_no_content('No foods added to recipe yet.')
+      expect(page).to have_content('Food Quantity Value Actions')
       expect(page).to have_content(@food.name)
       expect(page).to have_content(@ingredient.quantity)
-      expect(page).to have_content("12$")
-      expect(page).to have_content("Remove")
+      expect(page).to have_content('12$')
+      expect(page).to have_content('Remove')
     end
   end
 end

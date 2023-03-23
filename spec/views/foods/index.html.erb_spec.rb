@@ -13,7 +13,7 @@ RSpec.describe 'Food page view', type: :feature do
     end
 
     it 'Index content of food page' do
-      visit "/foods"
+      visit '/foods'
       expect(page).to have_content('Foods')
       expect(page).to have_content('Home')
       expect(page).to have_content('Food Measurement unit Unit price Quantity Actions')
@@ -27,7 +27,7 @@ RSpec.describe 'Food page view', type: :feature do
       sleep(5)
       expect(page).to have_current_path('/')
 
-      visit "/foods"
+      visit '/foods'
       click_button('Delete')
       expect(page).to have_no_content(@food.name)
 
