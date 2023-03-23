@@ -1,6 +1,5 @@
-<div>
-  <%= link_to "Home", "/" %>
-
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
+<div class="foods">
   <h2>Add Recipe</h2>
   <%= form_with model: @recipe, url: recipes_path , local: true do |f| %>
 

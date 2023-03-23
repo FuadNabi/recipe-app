@@ -1,18 +1,18 @@
-<%= link_to "Home", "/" %>
-
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
+<div class="foods">
 <%= form_with model: @recipe_food, url: recipe_recipe_foods_path do |f| %>
-  <div>
+  <div class="divs">
     <%= f.label :quantity %>
     <%= f.number_field :quantity %>
   </div>
 
-  <div>
+  <div class="divs">
     <%= f.label :food_id %>
     <%= f.select :food_id, @foods.map { |food| [food.name, food.id] } %>
   </div>
 
   <%= f.hidden_field :recipe_id, value: @recipe_id %>
-  <div>
+  <div class="divs">
     <%= f.submit "Add Ingredient" %>
   </div>
 <% end %>
@@ -34,3 +34,4 @@
     </tr>
   <% end %>
 </table>
+</div>
