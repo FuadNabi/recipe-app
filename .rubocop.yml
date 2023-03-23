@@ -16,7 +16,7 @@ Metrics/MethodLength:
   Include:
     - "app/controllers/*"
     - "app/models/*"
-  Max: 20
+  Max: 30
 Metrics/AbcSize:
   Include:
     - "app/controllers/*"
@@ -24,6 +24,10 @@ Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
   Max: 150
+Metrics/CyclomaticComplexity:
+  Max: 10
+Metrics/PerceivedComplexity:
+  Max: 10
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30

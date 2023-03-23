@@ -3,24 +3,36 @@
 <h3>Preparation time: <%= @recipe.preparation_time %></h3>
 <h3>Cooking time: <%= @recipe.cooking_time %></h3>
 <div>
-  <% if @recipe.public %>
-    <p>Public</p>
-    <label class="switch" >
-      <input type="checkbox" checked disabled><div></div>
-    </label>
-  <% else %>
-    <p>Private</p>
-    <label class="switch" >
-      <input type="checkbox" disabled><div></div>
-    </label>
-  <% end %>
-  <% if can? :update, @recipe %>
-    <%= form_for @recipe, scope: :recipe, method: :patch do  |f| %>
-      <%= f.submit 'Visibility', class: 'btn btn-primary' %>
+  <p>          
+    <% if @recipe.public %>
+      <p>Public</p>
+    <% else %>
+      <p>Private</p>
     <% end %>
-  <% end %>
+  </p>
+
+  <p>
+    <% if current_user.id === @recipe.user_id %>
+      <%disabled = false%>
+    <%else%>
+      <%disabled = true%>
+    <%end%>
+      
+    <%= form_with(model: @recipe) do |form| %>
+      <label class="switch">
+      <%= form.check_box :public, 
+        :disabled => disabled,
+        :class => "status-checkbox",
+        :role => "switch",
+        :onclick => "this.form.submit()" %>
+      <span class="slider round"></span>
+    <% end %>
+  </p>
+
+</div>
 </div>
 <h3>Steps: <%= @recipe.description%></h3> 
+<%= link_to "Generate shopping list", shopping_list_path(@recipe) %>
 <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
 <% if @recipe.recipe_foods.length != 0 %>
   <table>
