@@ -66,6 +66,7 @@ group :development do
 end
 
 gem 'cancancan'
+gem 'capybara'
 gem 'devise'
 gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'

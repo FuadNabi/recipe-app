@@ -1,22 +1,21 @@
 <h1>General shopping List</h1>
 <div>
-<p>Amount of food items to buy: <strong><%= @recipe_foods.count %></strong></p>
-<p>Total value of food needed: <strong>$<%= @total_price %></strong></p>
+  <p>Amount of food items to buy: <strong><%= @recipe_foods.count %></strong></p>
+  <p>Total value of food needed: <strong>$<%= @total_price %></strong></p>
 </div>
 <table>
-<thead>
-<td><strong>Food</strong></td>
-<td><strong>Quantity</strong></td>
-<td><strong>Price</strong></td>
-</thead>
-<tbody>
-
-<%  @recipe_foods.each do |food| %>
-<tr>
-<td><%= food.food.name %></td>
-<td><%= food.quantity %><%= food.food.measurement_unit %></td>
-<td>$<%= food.food.price*food.quantity %></td>
-</tr>
-<%end%>
-</tbody>
+  <thead>
+    <td><strong>Food</strong></td>
+    <td><strong>Quantity</strong></td>
+    <td><strong>Price</strong></td>
+  </thead>
+  <tbody>
+    <%  @recipe_foods.each do |food| %>
+      <tr>
+        <td><%= food.food.name %></td>
+        <td><%= food.quantity %><%= food.food.measurement_unit %></td>
+        <td>$<%= food.food.price*food.quantity %></td>
+      </tr>
+    <%end%>
+  </tbody>
 </table>
