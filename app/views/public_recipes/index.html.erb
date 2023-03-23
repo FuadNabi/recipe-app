@@ -1,7 +1,7 @@
-<%= link_to "Home", "/" %>
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
 <div>
   <% @public_recipes.each do |recipe|%>
-    <div>
+    <div class="foods">
       <h3>
         <%= link_to recipe.name, recipe_path(id: recipe.id), class: "card-title" %>
       </h3>

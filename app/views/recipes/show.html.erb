@@ -1,4 +1,4 @@
-<%= link_to "Home", "/" %>
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
 <h1>Recipe: <%= @recipe.name %></h1>
 <h3>Preparation time: <%= @recipe.preparation_time %></h3>
 <h3>Cooking time: <%= @recipe.cooking_time %></h3>
@@ -32,10 +32,12 @@
 </div>
 </div>
 <h3>Steps: <%= @recipe.description%></h3> 
-<%= link_to "Generate shopping list", shopping_list_path(@recipe) %>
-<%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
+<div class="list-add">
+<%= link_to "Generate shopping list", shopping_list_path(@recipe), class: "home-inner" %>
+<%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "home-inner" %>
+</div>
 <% if @recipe.recipe_foods.length != 0 %>
-  <table>
+  <table class="foods">
     <tr>
       <th>Food</th>
       <th>Quantity</th>

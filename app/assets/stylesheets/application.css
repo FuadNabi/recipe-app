@@ -73,7 +73,7 @@ body {
   border-radius: 50%;
 }
 
-.login, .signup, .forgot, .foods {
+.login, .signup, .forgot, .foods, .add-food {
   width: 30%;
   margin: auto;
   margin-top: 50px;
@@ -130,4 +130,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+}
+
+.recipe {
+  text-decoration: none;
+  color: green;
+}
+
+.add-food-div {
+  margin: 20px auto;
+}
+
+.list-add {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.divs {
+  margin: 10px 0;
 }
