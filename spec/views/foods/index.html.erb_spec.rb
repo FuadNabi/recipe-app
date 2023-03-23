@@ -12,7 +12,7 @@ RSpec.describe 'Food page view', type: :feature do
       click_button 'Log in'
     end
 
-    it 'Show content of home page' do
+    it 'Index content of food page' do
       visit "/foods"
       expect(page).to have_content('Foods')
       expect(page).to have_content('Home')
