@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :public_recipes
   get '/shopping_list/:recipe_id', to: 'shopping_list#index', as: 'shopping_list'
+  get '/shopping_list', to: 'shopping_list#show', as: 'general_shopping_list'
 end
