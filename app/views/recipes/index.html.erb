@@ -8,7 +8,7 @@
       <div class="recipe-header">
         <h3>Recipe <%= recipe.id%></h3>
         <h2><%= link_to recipe.name, recipe, class: "recipe"%></h2>      
-        <%= button_to "Remove", recipe, method: :delete %>
+        <%= button_to "Remove", recipe, method: :delete, class: "hover home-inner" %>
       </div>
       <div>
         <p><%=recipe.description %></p>
@@ -17,4 +17,4 @@
   <% end %>
 </div>
 </div>
-<div class="addrecipe"><%= link_to "Add Recipe", new_recipe_path, class: "addrecipe-inner" %></div>
+<div class="addrecipe"><%= link_to "Add Recipe", new_recipe_path, class: "hover home-inner" %></div>

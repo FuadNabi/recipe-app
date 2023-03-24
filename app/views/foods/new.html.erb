@@ -14,8 +14,8 @@
       </div>
 
       <div class="add-food-div">
-        <%= f.label :price %>
-        <%= f.text_field :price, autocomplete: "price" %>
+        <%= f.label :price %><br />
+        <%= f.number_field :price, autocomplete: "price" %>
       </div>
 
       <div class="add-food-div">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div>
-      <%= f.submit "Add" %>
+      <%= f.submit "Add", class: "hover home-inner"%>
     </div>
   <% end %>
 </div>

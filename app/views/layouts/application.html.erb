@@ -12,7 +12,7 @@
 
   <body>
     <% if(user_signed_in?) %>
-      <%= button_to "Sign out", destroy_user_session_path, :method => :delete, data: {turbo: false}%>
+      <%= button_to "Sign out", destroy_user_session_path, :method => :delete, data: {turbo: false}, class: "hover home-inner"%>
     <% end %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
