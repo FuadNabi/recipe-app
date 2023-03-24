@@ -1,63 +1,65 @@
 <div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
-<h1>Recipe: <%= @recipe.name %></h1>
-<h3>Preparation time: <%= @recipe.preparation_time %></h3>
-<h3>Cooking time: <%= @recipe.cooking_time %></h3>
-<div>
-  <p>          
-    <% if @recipe.public %>
-      <p>Public</p>
-    <% else %>
-      <p>Private</p>
-    <% end %>
-  </p>
+<div class="center-cont">
+  <h1>Recipe: <%= @recipe.name %></h1>
+  <div class="public-btn-line">
+    <h3>Preparation time: <%= @recipe.preparation_time %></h3>
+    <div>
+      <p>          
+        <% if @recipe.public %>
+          <p>Public</p>
+        <% else %>
+          <p>Private</p>
+        <% end %>
+      </p>
 
-  <p>
-    <% if current_user.id === @recipe.user_id %>
-      <%disabled = false%>
-    <%else%>
-      <%disabled = true%>
-    <%end%>
-      
-    <%= form_with(model: @recipe) do |form| %>
-      <label class="switch">
-      <%= form.check_box :public, 
-        :disabled => disabled,
-        :class => "status-checkbox",
-        :role => "switch",
-        :onclick => "this.form.submit()" %>
-      <span class="slider round"></span>
-    <% end %>
-  </p>
-
+      <% if current_user.id === @recipe.user_id %>
+        <%disabled = false%>
+      <%else%>
+        <%disabled = true%>
+      <%end%>
+        
+      <%= form_with(model: @recipe) do |form| %>
+        <label class="switch">
+        <%= form.check_box :public, 
+          :disabled => disabled,
+          :class => "status-checkbox",
+          :role => "switch",
+          :onclick => "this.form.submit()" %>
+        <span class="slider round"></span>
+      <% end %>
+    </div>
+  </div>
+  <h3>Cooking time: <%= @recipe.cooking_time %></h3>
+  <h3>Steps: <%= @recipe.description%></h3> 
 </div>
-</div>
-<h3>Steps: <%= @recipe.description%></h3> 
 <div class="list-add">
 <%= link_to "Generate shopping list", shopping_list_path(@recipe), class: "home-inner" %>
 <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "home-inner" %>
 </div>
 <% if @recipe.recipe_foods.length != 0 %>
-  <table class="foods">
-    <tr>
-      <th>Food</th>
-      <th>Quantity</th>
-      <th>Value</th>
-      <th>Actions</th>
-    </tr>
-    <% @recipe.recipe_foods.each do |f| %>
+  <div class="foods">
+    <table>
       <tr>
-        <td><%= f.food.name %></td>
-        <td><%= f.quantity %></td>
-        <td>
-          <% sum = f.quantity * f.food.price%>
-          <%= sum%>$
-        </td>
-        <% if can? :destroy, @recipe%>
-          <td><%= button_to "Remove", recipe_recipe_food_path(@recipe.id, f.id), method: :delete%></td>
-        <%end%>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
       </tr>
-    <%end%>
-  </table>
+      <% @recipe.recipe_foods.each do |f| %>
+        <tr>
+          <td><%= f.food.name %></td>
+          <td><%= f.quantity %></td>
+          <td>
+            <% sum = f.quantity * f.food.price%>
+            <%= sum%>$
+          </td>
+          <% if can? :destroy, @recipe%>
+            <td><%= button_to "Remove", recipe_recipe_food_path(@recipe.id, f.id), method: :delete%></td>
+          <%end%>
+        </tr>
+      <%end%>
+    </table>
+  </div>
 <% else %>
   <p>No foods added to recipe yet.</p>
 <%end%>

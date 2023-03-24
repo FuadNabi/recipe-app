@@ -4,13 +4,31 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .menu-item {
   border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  justify-self: center;
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .menu-img {
-  width: 100px;
-  height: 50px;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .switch {
@@ -76,9 +94,20 @@ body {
 .login,
 .signup,
 .forgot,
-.foods,
 .add-food {
   width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.foods {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
   margin: auto;
   margin-top: 50px;
   border: 1px solid;
@@ -110,12 +139,24 @@ body {
 .addfood-inner,
 .addrecipe-inner {
   text-decoration: none;
+  background-color: white;
   color: black;
-  padding: 5px;
+  padding: 5px 10px;
   border: 1px solid;
+  transition: all 0.3s;
 }
 
-.addfood,
+.hover:hover {
+  background-color: black;
+  color: white;
+}
+
+.addfood {
+  text-align: right;
+  margin-top: 40px;
+  width: 90%;
+}
+
 .addrecipe {
   text-align: center;
   margin-top: 40px;
@@ -158,4 +199,45 @@ body {
 
 .divs {
   margin: 10px 0;
+}
+
+.center-cont {
+  margin: 0 60px;
+}
+
+.alert {
+  text-align: center;
+  color: red;
+}
+
+.notice {
+  color: green;
+  text-align: center;
+}
+
+tr {
+  background-color: #f8f8f8;
+}
+
+tr:nth-child(odd) {
+  background-color: #ebebeb; /* Set background color for odd rows */
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.public-btn-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.public-btn-line div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
 }
