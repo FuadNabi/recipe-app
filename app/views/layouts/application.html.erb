@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/e2597287a1.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <% if(user_signed_in?) %>
+      <%= button_to "Sign out", destroy_user_session_path, :method => :delete, data: {turbo: false}, class: "hover home-inner"%>
+    <% end %>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

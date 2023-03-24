@@ -1,15 +1,243 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.menu-item {
+  border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  justify-self: center;
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.menu-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f00;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.status-checkbox:checked + .slider {
+  background-color: green;
+}
+
+.status-checkbox:focus + .slider {
+  box-shadow: 0 0 1px green;
+}
+
+.status-checkbox:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.login,
+.signup,
+.forgot,
+.add-food {
+  width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.foods {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.field,
+.actions {
+  margin-top: 20px;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+.signup-button,
+.forgot-button,
+.login-button {
+  color: black;
+}
+
+.home {
+  text-align: center;
+}
+
+.home-inner,
+.addfood-inner,
+.addrecipe-inner {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border: 1px solid;
+  transition: all 0.3s;
+}
+
+.hover:hover {
+  background-color: black;
+  color: white;
+}
+
+.addfood {
+  text-align: right;
+  margin-top: 40px;
+  width: 90%;
+}
+
+.addrecipe {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.recipes {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+  box-shadow: 5px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.recipe-each {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.recipe-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe {
+  text-decoration: none;
+  color: green;
+}
+
+.add-food-div {
+  margin: 20px auto;
+}
+
+.list-add {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.divs {
+  margin: 10px 0;
+}
+
+.center-cont {
+  margin: 0 60px;
+}
+
+.alert {
+  text-align: center;
+  color: red;
+}
+
+.notice {
+  color: green;
+  text-align: center;
+}
+
+tr {
+  background-color: #f8f8f8;
+}
+
+tr:nth-child(odd) {
+  background-color: #ebebeb; /* Set background color for odd rows */
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.public-btn-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.public-btn-line div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}

@@ -1,0 +1,17 @@
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
+<div>
+  <% @public_recipes.each do |recipe|%>
+    <div class="foods">
+      <h3>
+        <%= link_to recipe.name, recipe_path(id: recipe.id), class: "card-title" %>
+      </h3>
+      <h5>By: <%= recipe.user.name %>
+      </h5>
+      <p>Total food items: <%= recipe.recipe_foods.length %> 
+      </p>
+      <p>
+        Total price: $<%= recipe.total_price %>
+      </p>
+    </div>
+  <%end%>
+</div>

@@ -1,0 +1,35 @@
+<div class="home"><%= link_to "Home", "/", class: "home-inner" %></div>
+<div class="foods">
+  <h2>Add Recipe</h2>
+  <%= form_with model: @recipe, url: recipes_path , local: true do |f| %>
+
+  <div>
+    <div>
+      <%= f.label :name %> <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :preparation_time %> <br>
+      <%= f.text_field :preparation_time %>
+    </div>
+
+    <div>
+      <%= f.label :cooking_time %> <br>
+      <%= f.text_field :cooking_time %>
+    </div>
+
+    <div>
+      <%= f.label :public %> <br>
+      <%= f.check_box :public %>
+    </div>
+
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <%= f.submit %> <br>
+  </div>
+
+  <% end %>
+</div>
